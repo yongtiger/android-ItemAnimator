@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion setup.compileSdk
+    buildToolsVersion setup.buildTools
+
+    defaultConfig {
+        applicationId "cc.brainbook.android.itemanimator.app"
+
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+        versionCode release.versionCode
+        versionName release.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(':library')
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+    implementation 'com.github.yongtiger:android-FastAdapter:v1.1.15'
+
+    //used to generate the Open Source section
+    //https://github.com/mikepenz/AboutLibraries
+    implementation('com.mikepenz:aboutlibraries:6.2.0') {
+        exclude module: "itemanimators"
+        exclude module: "fastadapter"
+        exclude group: "com.android.support"
+    }
+
+    //used to display the icons in the drawer
+    //https://github.com/mikepenz/Android-Iconics
+    implementation 'com.mikepenz:material-design-iconic-typeface:2.2.0.1@aar'
+
+    //https://github.com/JakeWharton/butterknife
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    //used to load the images in the ImageListSample
+    //https://github.com/bumptech/glide
+    implementation('com.github.bumptech.glide:glide:3.8.0') {
+        exclude group: "com.android.support"
+    }
+
+    ///used to generate the drawer on the left
+    ///https://github.com/mikepenz/MaterialDrawer
+    implementation('com.mikepenz:materialdrawer:6.1.2') {  ///Note: 6.1.2 is latest version of Java&AndroidX
+        transitive = true
+        exclude group: "com.mikepenz"
+    }
+
+    implementation 'com.github.yongtiger:android-Materialize:v1.2.4'
+}
