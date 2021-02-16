@@ -3,7 +3,7 @@ buildscript {
     ext {
         setup = [
                 compileSdk : 30,
-                buildTools : "30.0.2",
+                buildTools : "30.0.3",
                 minSdk     : 16,
                 targetSdk  : 30
         ]
