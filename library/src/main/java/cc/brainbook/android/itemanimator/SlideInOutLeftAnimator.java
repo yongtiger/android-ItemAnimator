@@ -2,6 +2,7 @@ package cc.brainbook.android.itemanimator;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,41 +21,41 @@ public class SlideInOutLeftAnimator extends DefaultAnimator<SlideInOutLeftAnimat
     }
 
     @Override
-    public void addAnimationPrepare(RecyclerView.ViewHolder holder) {
+    public void addAnimationPrepare(@NonNull RecyclerView.ViewHolder holder) {
         retrieveItemPosition(holder);
         ViewCompat.setTranslationX(holder.itemView, -mDeltaX);
         ViewCompat.setTranslationZ(holder.itemView, 100);
     }
 
     @Override
-    public ViewPropertyAnimatorCompat addAnimation(RecyclerView.ViewHolder holder) {
+    public ViewPropertyAnimatorCompat addAnimation(@NonNull RecyclerView.ViewHolder holder) {
         final View view = holder.itemView;
         return ViewCompat.animate(view).translationX(0).alpha(1).setDuration(getAddDuration());
     }
 
     @Override
-    public void addAnimationCleanup(RecyclerView.ViewHolder holder) {
+    public void addAnimationCleanup(@NonNull RecyclerView.ViewHolder holder) {
         ViewCompat.setAlpha(holder.itemView, 1);
         ViewCompat.setTranslationX(holder.itemView, 0);
         ViewCompat.setTranslationZ(holder.itemView, 1);
     }
 
     @Override
-    public ViewPropertyAnimatorCompat removeAnimation(RecyclerView.ViewHolder holder) {
+    public ViewPropertyAnimatorCompat removeAnimation(@NonNull RecyclerView.ViewHolder holder) {
         ViewCompat.setTranslationZ(holder.itemView, 100);
         final ViewPropertyAnimatorCompat animation = ViewCompat.animate(holder.itemView);
         return animation.setDuration(getRemoveDuration()).alpha(0).translationX(-mDeltaX);
     }
 
     @Override
-    public void removeAnimationCleanup(RecyclerView.ViewHolder holder) {
+    public void removeAnimationCleanup(@NonNull RecyclerView.ViewHolder holder) {
         ViewCompat.setTranslationX(holder.itemView, 0);
         ViewCompat.setAlpha(holder.itemView, 1);
         ViewCompat.setTranslationZ(holder.itemView, 1);
     }
 
 
-    private void retrieveItemPosition(final RecyclerView.ViewHolder holder) {
+    private void retrieveItemPosition(@NonNull final RecyclerView.ViewHolder holder) {
         mDeltaX = mRecyclerView.getWidth() - mRecyclerView.getLayoutManager().getDecoratedLeft(holder.itemView);
     }
 

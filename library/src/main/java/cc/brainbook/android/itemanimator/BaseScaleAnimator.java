@@ -1,5 +1,6 @@
 package cc.brainbook.android.itemanimator;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by mikepenz on 08.01.16.
  */
 public abstract class BaseScaleAnimator<T> extends BaseItemAnimator<T> {
-    public void changeAnimation(RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
+    public void changeAnimation(@NonNull RecyclerView.ViewHolder oldHolder, RecyclerView.ViewHolder newHolder, int fromX, int fromY, int toX, int toY) {
         final float prevTranslationX = ViewCompat.getTranslationX(oldHolder.itemView);
         final float prevTranslationY = ViewCompat.getTranslationY(oldHolder.itemView);
         final float prevValue = changeAnimationPrepare1(oldHolder);
