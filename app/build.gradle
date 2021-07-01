@@ -32,15 +32,15 @@ android {
 dependencies {
     implementation project(':library')
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
 
     implementation 'com.github.yongtiger:android-FastAdapter:v1.1.15'
 
     //used to generate the Open Source section
     //https://github.com/mikepenz/AboutLibraries
-    implementation('com.mikepenz:aboutlibraries:6.2.0') {
+    implementation('com.mikepenz:aboutlibraries:6.2.3') {
         exclude module: "itemanimators"
         exclude module: "fastadapter"
         exclude group: "com.android.support"
