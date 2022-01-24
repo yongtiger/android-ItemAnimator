@@ -14,7 +14,7 @@ android {
         versionCode release.versionCode
         versionName release.versionName
 
-        consumerProguardFiles "consumer-rules.pro"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -32,13 +32,16 @@ android {
 }
 
 dependencies {
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+
     implementation project(':library')
 
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.2.1"
 
-    implementation 'com.github.yongtiger:android-FastAdapter:v1.1.15'
+    implementation 'com.github.yongtiger:android-FastAdapter:v1.7.0'
 
     //used to generate the Open Source section
     //https://github.com/mikepenz/AboutLibraries
@@ -53,8 +56,8 @@ dependencies {
     implementation 'com.mikepenz:material-design-iconic-typeface:2.2.0.1@aar'
 
     //https://github.com/JakeWharton/butterknife
-    implementation 'com.jakewharton:butterknife:10.2.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
     //used to load the images in the ImageListSample
     //https://github.com/bumptech/glide
@@ -69,5 +72,5 @@ dependencies {
         exclude group: "com.mikepenz"
     }
 
-    implementation 'com.github.yongtiger:android-Materialize:v1.4.0'
+    implementation 'com.github.yongtiger:android-Materialize:v1.5.0'
 }
