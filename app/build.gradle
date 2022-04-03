@@ -4,7 +4,7 @@ plugins {
 
 android {
     compileSdkVersion setup.compileSdk
-    buildToolsVersion setup.buildTools
+//    buildToolsVersion setup.buildTools
 
     defaultConfig {
         applicationId "cc.brainbook.android.itemanimator.app"
@@ -72,5 +72,5 @@ dependencies {
         exclude group: "com.mikepenz"
     }
 
-    implementation 'com.github.yongtiger:android-Materialize:v1.5.0'
+    implementation 'com.github.yongtiger:android-Materialize:v1.6.0'
 }
